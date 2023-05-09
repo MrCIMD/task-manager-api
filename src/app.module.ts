@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import config, { ConfigurationEnum } from './common/config';
+import { DatabaseModule } from './common/database/database.module';
 
 @Module({
   imports: [
@@ -8,6 +9,7 @@ import config, { ConfigurationEnum } from './common/config';
       load: [config],
       envFilePath: `${process.env.NODE_ENV}.env`,
     }),
+    DatabaseModule,
   ],
   controllers: [],
   providers: [],
